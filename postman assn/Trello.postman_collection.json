@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "95c65492-f4f0-4b6f-92d5-95a9d01cf017",
+		"name": "Trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.globals.set(\"boardid\",jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/?name=aditi&key={{key}}&token={{token}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "aditi"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"value": "070d9420bad58a7447f9f7d5402f701a",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "token",
+						"value": "86d9a095d3742939c5193c015b8b2e6ce953854dd51a74f086166ed3ede38d5a",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/TV4SVwHJ?key={{key}}&token={{token}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"TV4SVwHJ"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/{{boardid}}?key={{key}}&token={{token}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{boardid}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
